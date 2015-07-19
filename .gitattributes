@@ -1,0 +1,38 @@
+# Auto detect text files and perform LF normalization  
+* text eol=lf
+
+# Custom for Visual Studio
+*.cs      text diff=csharp
+*.java    text diff=java
+*.html    text diff=html
+*.css     text
+*.js      text
+*.sql     text
+*.csproj  text merge=union
+*.sln     text merge=union
+*.less    text 
+*.xaml    text
+*.tt      text
+*.ps1     text
+*.cmd     text
+*.msbuild text
+*.md      text
+*.pubxml  text
+*.sln     text
+
+# Standard to msysgit
+*.doc	 diff=astextplain
+*.docx   diff=astextplain
+*.dot    diff=astextplain
+*.pdf    diff=astextplain
+*.rtf	 diff=astextplain
+
+*.jpg	 binary
+*.jpeg	 binary
+*.png	 binary
+*.ico	 binary
+*.svg	 binary
+*.dll    binary
+*.ipa    binary
+*.exe    binary
+*.apk    binary
