@@ -1,9 +1,10 @@
 ﻿using System;
-
+using SQLite;
 namespace UserBrowse
 {
 	public class UserModel
 	{
+		[PrimaryKey]
 		public int UserId { get; set; }
 
 		public string Username { get; set; }

@@ -49,14 +49,35 @@ namespace UserBrowse
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				VerticalOptions = LayoutOptions.FillAndExpand
 			};
-			mainLayout.Children.Add (indicator);
+			model = App.UserDB.GetUser (userId);
 
-			model = await UserControl.GetUserAsync (userId);
+			if (model == null) {
+				mainLayout.Children.Add (indicator);
 
-			mainLayout.Children.Remove (indicator);
+				model = await UserControl.GetUserAsync (userId);
+				App.UserDB.SaveUser (model);
+				mainLayout.Children.Remove (indicator);
+			} else {
+				LoadUser ();
+			}
 
 			CreateImageLayout ();
 			CreateInfoLayout ();
+
+		}
+		public async void LoadUser(){
+			model = await UserControl.GetUserAsync (userId);
+
+			coverImage.Source = model.CoverImage;
+			profileImage.Source = model.ProfileImage;
+			usernameLabel.Text = model.Username;
+			nameLabel.Text = model.Name;
+			locationLabel.Text = model.Location;
+			aboutContentLabel.Text = model.About;
+			plurLabel.Text = model.Plurs + " PLURS";
+			likeLabel.Text = model.Likes + " Likes";
+
+			App.UserDB.SaveUser (model);
 
 		}
 		public void CreateImageLayout ()

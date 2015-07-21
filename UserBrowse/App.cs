@@ -6,6 +6,7 @@ namespace UserBrowse
 {
 	public class App : Application
 	{
+		public static UserDatabase UserDB = new UserDatabase();
 		public App ()
 		{
 			// The root page of your application
